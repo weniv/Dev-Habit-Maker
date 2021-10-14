@@ -1,0 +1,878 @@
+@charset "utf-8";
+
+@import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css);
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap');
+
+/* 유틸리티 */
+/* 스크린리더 */
+.sr-only {
+    position:absolute;
+    left:-10000px;
+    top:auto;
+    width:1px;
+    height:1px;
+    overflow:hidden;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    font-family: 'Spoqa Han Sans Neo', 'sans-serif';
+    font-weight: 500;
+    color: #FFF;
+    background-color: #F2F2F2;
+    cursor: url(../img/cursor_gary.cur) 16 16, auto;
+}
+
+button, input {
+    font-family: 'Spoqa Han Sans Neo', 'sans-serif';
+}
+
+a {
+    text-decoration: none;
+    cursor: url(../img/cursor_pointer.cur) 16 16, auto;
+}
+
+/* 버튼 공통 스타일 */
+button {
+    background: none;
+    box-sizing: border-box;
+    height: 40px;
+    border: 2px solid #956BD9;
+    border-radius: 30px;
+    color: #956BD9;
+    font-size: 14px;
+    font-weight: 700;
+    padding: 0;
+    cursor: url(../img/cursor_pointer.cur) 16 16, pointer;
+}
+
+/* 배경색이 있는 버튼은 fill 클래스 추가 */
+button.fill {
+    border: none;
+    background: #956BD9;
+    color: #FFF;
+}
+
+/* 헤더 */
+.header {
+    width: 100%;
+    background-color: #956BD9;
+    height: 403px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    display: flex;
+    justify-content: center;
+    position:absolute;
+    z-index: -1;
+}
+
+/* 헤더 - 방문자 수 */
+.header .visitors {
+    width: 100%;
+    padding: 28px 0 0 20px;
+    font-size: 13px;
+}
+
+/* 메인 컨텐츠 */
+.main-contents {
+    /* position: absolute;
+    top: 116px; */
+    /* left: 50%;
+    transform: translateX(-50%); */
+    width: 100%;
+}
+
+/* 메인 컨텐츠 - 헤더 */
+.contents-header {
+    text-align: center;
+    margin-bottom: 45px;
+}
+
+.contents-header h2 {
+    font-size: 18px;
+    color: #FFF282;
+    margin-bottom: 30px;
+}
+
+.small-p{
+    font-size: 12px;
+}
+
+/* 챌린지 이름 */
+.challenge-title {
+    font-size: 36px;
+    font-weight: 700;
+    padding: 0 20px 30px;
+}
+
+/* 메인 컨텐츠 - article */
+.main-contents article {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.challenge-contents{
+    padding: 110px 0 131px;
+}
+
+/* 상태바 */
+.progress {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 24px;
+}
+
+/* 상태바 컨테이너 */
+.progress-bar-cont {
+    width: 353px;
+    height: 30px;
+    border-radius: 20px;
+    background-color: #FFF;
+    box-sizing: border-box;
+    padding: 3px 4px;
+    margin-right: 12px;
+}
+
+/* 상태바 */
+/* progress-bar width는 진행상황에 맞춰서 변경 */
+.progress-bar {
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(270deg, #956BD9 0%, #FFE973 101.15%);
+    border-radius: 20px;
+    transition: all .4s;
+}
+
+/* 성공 문구 */
+.progress-success {
+    font-size: 14px;
+    font-weight: 700;
+}
+
+/* 챌린지 테이블 */
+.challenge-table {
+    position: relative;
+    width: 446px;
+    background-color: #FFF;
+    border-radius: 20px;
+    box-sizing: border-box;
+    padding: 24px 24px 12px;
+    /* box-shadow: 0px 0px 8px rgba(149, 107, 217, 0.38); */
+    margin-right: 0;
+    margin-bottom: 40px;
+}
+
+/* 챌린지 테이블 wrapper */
+.table-item-wrap {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+/* 날짜와 스티커가 들어갈 div */
+.table-item {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 70px;
+    height: 70px;
+    box-sizing: border-box;
+    background-color: #FFE973;
+    border-radius: 15px;
+    margin: 0 12px 12px 0;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: url(../img/cursor_pointer.cur) 16 16, pointer;
+}
+
+.table-item.selected {
+    border: 2px solid #956BD9;
+    color: #956BD9;
+}
+
+/* table-item 중 5의 배수 자식들은 margin-right=0 */
+.challenge-table .table-item:nth-child(5n) {
+    margin: 0 0 12px 0;
+}
+
+/* 스티커 애니메이션 */
+@keyframes sticker {
+    0% {
+        transform: scale(2) rotate(10deg);
+    }
+    20% {
+        transform: rotate(-10deg);
+    }
+    40% {
+        transform: rotate(3deg);
+    }
+    60%{
+        transform: rotate(-3deg);
+    }
+    80%{
+        transform: rotate(3deg);
+    }
+    100% {
+        transform: scale(1) rotate(0deg);
+    }
+}
+
+.table-item > div {
+    animation-name: sticker; 
+    animation-duration: 1.7s; 
+    width: 70px;
+    height: 70px;
+    z-index: 1;
+}
+
+.table-item .sticker {
+    width: 70px;
+    height: 70px;
+}
+
+/* 스티커 선택 모달 */
+.select-sticker {
+    display: none;
+    position: absolute;
+    /* left: 50%;
+    transform: translateX(-50%); */
+    padding: 15px 16px 14px;
+    background-color: #FFF;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    z-index: 2;
+}
+
+/* table-item 클릭시 active 클래스 추가 */
+.select-sticker.active {
+    display: block;
+}
+
+.select-sticker h3 {
+    color: #956BD9;
+    font-size: 13px;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 6px;
+}
+
+/* 스티커 리스트 */
+.sticker-list {
+    display: flex;
+    color: #828282;
+    font-size: 12px;
+}
+
+/* 스티커 아이템 */
+.sticker-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: url(../img/cursor_pointer.cur) 16 16, pointer;
+    margin-right: 14px;
+}
+
+.sticker-item:nth-child(4) {
+    margin: 0;
+}
+
+/* .select-sticker에 .add-remove-btn 추가되면 .remove-btn 활성화 */
+.sticker-item.remove-btn {
+    display: none;
+}
+
+.select-sticker.add-remove-btn .remove-btn {
+    display: flex;
+    margin: 0 0 0 14px;
+}
+
+/* 스티커 이미지 */
+.sticker-item > .sticker {
+    width: 62px;
+    height: 62px;
+    margin-bottom: 5px;
+}
+
+/* 메인 버튼 리스트 */
+.main-buttons {
+    display: flex;
+    justify-content: space-between;
+    width: 446px;
+}
+
+/* 챌린지 설정하기 버튼 */
+.main-buttons .setting-btn {
+    width: 140px;
+}
+
+/* 저장, 공유 버튼 */
+.main-buttons .save-btn, .main-buttons .share-btn {
+    width: 119px;
+}
+
+.main-buttons .save-btn {
+    margin-right: 12px;
+}
+
+.main-buttons .share-btn {
+    position: relative;
+    padding: 0 18px 0 45px;
+}
+
+.main-buttons .share-btn::after {
+    position: absolute;
+    content: "";
+    left: 18px;
+    top: 50%;
+    transform: translateY(-10px);
+    background: url(../img/share.png);
+    width: 20px;
+    height: 20px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+/* footer */
+footer {
+    left: 0;
+    bottom: 0;
+    background-color: #FFF;
+    color: #828282;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 17px;
+    display: flex;
+    justify-content: center;
+    padding: 34px 0 32px;
+}
+
+.footer-wrapper {
+    display: flex; 
+    justify-content: space-between;
+    width: 1150px;
+    padding: 0 20px;
+}
+
+.copyright {
+    display: flex;
+    align-items: center;
+}
+
+.copyright .logo {
+    width: 100px;
+    height: 20px;
+    margin-right: 36px;
+}
+
+.copyright .logo img {
+    width: 100%;
+}
+
+footer .sns-list {
+    display: flex;
+    align-items: center;
+}
+
+footer .sns-list a {
+    width: 24px;
+    height: 24px;
+    margin-left: 20px;
+}
+
+footer .sns-list a:first-child {
+    margin: 0;
+}
+
+footer .sns-list a > img {
+    width: 100%;
+}
+
+
+/*모달창 */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    color: #4F4F4F;
+    background-color: rgba(0, 0, 0, 0.2);
+    z-index: 2;
+}
+
+.modal-wrap {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    width: 426px;
+    background-color: #FFF;
+    box-sizing: border-box;
+    padding: 26px 28px 28px;
+    border-radius: 20px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.25);
+}
+
+
+/* 공유를 위한 모달 및 아이콘 */
+.icon-wrap{
+    display: flex;
+    padding: 22px 22px 0;
+    /* border-top: 1px solid #E0E0E0; */
+    margin-bottom: 22px;
+}
+
+.icon-wrap .save-btn, .link-icon {
+    position: relative;
+    font-size: 10px;
+    font-weight: 500;
+    text-decoration: none;
+    color: #4F4F4F;
+    width: 58px;
+    height: 58px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    margin-right: 38px;
+}
+
+.icon-wrap .save-btn {
+    border: none;
+    border-radius: 0%;
+    background-image: url(../img/img_save.png);
+}
+
+.link-icon.twitter { 
+    background-image: url(../img/twitter_logo.png);
+}
+
+.link-icon.twitter { 
+    background-image: url(../img/twitter_logo.png); 
+}
+
+.link-icon.facebook {
+    margin: 0;
+    background-image: url(../img/face_logo.png);
+} 
+
+.link-icon.kakao { 
+    background-image: url(../img/kakao_logo.png);
+}
+
+.icon-wrap .save-btn::after, .link-icon.twitter::after, .link-icon.facebook::after, .link-icon.kakao::after {
+    position: absolute;
+    left: 0;
+    bottom: -19px;
+    text-align: center;
+    width: 100%;
+}
+
+.icon-wrap .save-btn::after {
+    width: 60px;
+    left: -3px;
+    content: "Image save";
+}
+
+.link-icon.twitter::after {
+    content: "twitter";
+}
+
+.link-icon.facebook::after {
+    content: "facebook";
+}
+
+.link-icon.kakao::after {
+    content: "kakao";
+}
+
+/* 챌린지 설정하기 버튼 클릭시 active 클래스 추가 */
+.modal.active {
+    display: block;
+}
+
+/* 챌린지 수정 모달 wrapper */
+.modal header h2 {
+    font-size: 16px;
+    font-weight: 700;
+    color: #000;
+    padding-bottom: 22px;
+    text-align: center;
+}
+
+/* 취소(닫기) 버튼 스타일 */
+.modal .cancel-btn {
+    position: absolute;
+    right: 28px;
+    top: 24px;
+    width: 20px;
+    height: 20px;
+    border: none;
+    background: url(../img/close_btn.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 20px 20px;
+}
+
+/* input */
+.input {
+    padding: 22px 0;
+    border-top: 1px solid #E0E0E0;
+    border-bottom: 1px solid #E0E0E0;
+    margin-bottom: 22px;
+}
+
+/* 챌린지 이름 설정하기 */
+.input-name {
+    margin-bottom: 20px;
+}
+
+/* 데이터 제목 스타일 */
+.input-title {
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+/* 챌린지 이름 input 스타일 */
+.input-name input[type=text] {
+    width: 100%;
+    height: 36px;
+    border: 1px solid #BDBDBD;
+    border-radius: 5px;
+    box-sizing: border-box;
+    padding: 0 10px;
+}
+
+/* 챌린지 기간 설정 스타일 */
+/* radio 버튼을 보이지 않게 설정 */
+.input-term input[type=radio] {
+    position: absolute;
+    left: -10000px;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+
+/* label 스타일 */
+.input-term input[type=radio] + label {
+    display: inline-block;
+    width: 85px;
+    height: 36px;
+    padding: 11px 0;
+    border-radius: 5px;
+    border: 1px solid #BDBDBD;
+    box-sizing: border-box;
+    font-size: 14px;
+    cursor: url(../img/cursor_pointer.cur) 16 16, auto;
+    text-align: center;
+    margin-right: 11px;
+}
+
+.input-term input[type=radio] + label:last-child {
+    margin: 0;
+}
+
+/* radio 버튼을 클릭했을 때 label 스타일 */
+.input-term input[type=radio]:checked + label {
+    border: none;
+    border-radius: 5px;
+    background-color: #828282;
+    color: #FFF;
+}
+
+/* 버튼 정렬을 위한 input wrapper */
+.input-wrap {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* 챌린지 설정 모달 - 버튼 */
+.modal-buttons {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* 취소 버튼 */
+.modal-buttons .reset-btn {
+    width: 132px;
+}
+
+/* 저장 버튼 */
+.modal-buttons .save-btn {
+    width: 226px;
+}
+
+/* 초기화 확인 메시지 */
+/* 초기화 버튼 누르면 나타나고, 버튼 텍스트는 "네!"로 변경 */
+/* 버튼 외 다른 영역 누르면 사라지고 텍스트도 원래대로 변경 */
+.confirm-msg {
+    display: none;
+    position: absolute;
+    left: -24px;
+    top: -48px;
+    width: 180px;
+    background: #333333;
+    color: #FFF;
+    font-size: 14px;
+    border-radius: 5px;
+}
+
+.share-info-text {
+    padding: 15px;
+    line-height: 2;
+    font-size: 15px;
+    text-align: center;
+    border-top: 1px solid #E0E0E0;
+    border-bottom: 1px solid #E0E0E0;
+}
+
+.confirm-msg::after {
+    position: absolute;
+    content: "";
+    left: 50%;
+    bottom: -14px;
+    transform: translateX(-50%) translateY(-50%);
+    width: 0;
+    height: 0;
+    border-top: 15px solid #333333;
+    border-right: 10px solid transparent;
+    border-left: 10px solid  transparent;
+}
+
+.confirm-msg p {
+    padding: 13px 0;
+    text-align: center;
+}
+
+@media all and (max-width: 480px) {
+    button {
+        height: 36px;
+        font-size: 12px;
+    }
+
+    .header {
+        height: 267px;
+    }
+
+    .header .visitors {
+        padding: 10px 0 0 10px;
+    }
+
+    .main-contents {
+        top: 65px;
+    }
+
+    .challenge-contents {
+        padding: 65px 0 154px;
+    }
+
+    .contents-header {
+        margin-bottom: 33px;
+    }
+
+    .contents-header h2 {
+        font-size: 12px;
+        margin-bottom: 16px;
+    }
+
+    .challenge-title {
+        font-size: 18px;
+        padding: 0 16px 16px;
+    }
+
+    .small-p {
+        font-size: 12px;
+    }
+
+    .progress {
+        margin-bottom: 20px;
+    }
+
+    .progress-bar-cont {
+        width: 240px;
+        height: 20px;
+        padding: 3px;
+        margin-right: 8px;
+    }
+
+    .progress-success {
+        font-size: 13px;
+    }
+
+    .challenge-table {
+        width: 322px;
+        padding: 16px 16px 6px;
+        margin-bottom: 33px;
+    }
+
+    .table-item {
+        width: 50px;
+        height: 50px;
+        margin: 0 10px 10px 0;
+        font-size: 14px;
+    }
+
+    .challenge-table .table-item:nth-child(5n) {
+        margin: 0 0 10px 0;
+    }
+
+    .table-item > div {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .table-item .sticker {
+        width: 50px;
+        height: 50px;
+    }
+
+    .select-sticker h3 {
+        font-size: 10px;
+    }
+
+    .sticker-list {
+        font-size: 10px;
+    }
+
+    .sticker-item {
+        margin-right: 12px;
+    }
+
+    .select-sticker.add-remove-btn .remove-btn {
+        margin: 0 0 0 12px;
+    }    
+
+    .sticker-item > .sticker{
+        width: 42px;
+        height: 42px;
+    }
+
+    .main-buttons {
+        width: 322px;
+    }
+
+    .main-buttons .setting-btn {
+        width: 120px;
+    }
+
+    .main-buttons .save-btn {
+        margin-right: 8px;
+    }
+
+    .setting-modal {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        color: #4F4F4F;
+        background-color: rgba(0, 0, 0, 0.2);
+    }
+
+    .setting-modal.active {
+        display: block;
+    }
+
+    .modal-wrap {
+        width: 330px;
+        padding: 26px 25px;
+    }
+
+    .setting-modal header h2 {
+        font-size: 14px;
+        padding-bottom: 22px;
+    }
+
+    .input-title {
+        font-size: 12px;
+        margin-bottom: 10px;
+    }
+
+    .input-term input[type=radio] + label {
+        width: 65px;
+        padding: 12px 0;
+        font-size: 12px;
+    }
+
+    .modal-buttons .reset-btn {
+        width: 102px;
+    }
+
+    .modal-buttons .save-btn {
+        width: 168px;
+    }
+
+    .confirm-msg {
+        left: -23px;
+        top: -39px;
+        font-size: 12px;
+        width: 148px;
+    }
+    
+    .confirm-msg p {
+        padding: 10px 0;
+    }
+
+    .icon-wrap {
+        display: flex;
+        padding: 22px 7px 0;
+    }
+
+    .icon-wrap .save-btn, .link-icon {
+        width: 46px;
+        height: 46px;
+        margin-right: 27px;
+    }
+
+    .icon-wrap .save-btn::after {
+        width: 54px;
+    }
+
+    .share-info-text {
+        font-size: 12px;
+    }
+}
+
+
+@media all and (max-width: 760px) {
+    footer {
+        font-size: 9px;
+        line-height: 13px;
+        padding: 25px 0;
+    }
+    
+    .footer-wrapper {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .copyright {
+        flex-direction: column;
+    }
+    
+    .copyright .logo {
+        margin: 0;
+    }
+
+    .copyright .copyright-text {
+        margin: 18px 0 30px;
+        text-align: center;
+    }
+
+    footer .sns-list a {
+        width: 22px;
+        height: 22px;
+        margin-left: 22px;
+    }
+}

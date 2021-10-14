@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:url" content="https://weniv.github.io/30daysChallengeHabit/">
+    <meta property="og:title" content="Day Habit Challenge">
+    <meta property="og:type" content="website">
+    <meta property="og:description" content="하루하루 천천히 습관만들기 도전!">
+    <meta property="og:image" content="https://weniv.github.io/30daysChallengeHabit/src/img/thumbnail.png">
+    <title>30Days Habit Maker</title>
+    <link rel="shortcut icon" href="/src/img/favicon.ico"/>
+    <link rel="stylesheet" href="src/style/reset.css">
+    <link rel="stylesheet" href="src/style/style.css">
+    <!-- 화면 캡쳐 CDN -->
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+</head>
+<body>
+<div class="container">
+    <main class="main-contents">
+        <header class="header">
+            <div class="visitors">
+                <a href="https://hits.seeyoufarm.com"><img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fweniv.github.io%2F30daysChallengeHabit%2F&count_bg=%239450C7&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=false"/></a>
+            </div>
+        </header>
+        <article class="challenge-contents">
+            <header class="contents-header">
+                <h2>My Challenge</h1>
+                <h1 class="challenge-title"></h2>
+                <p class="small-p">Start Date : <span id="start-date"></span></p>
+            </header>
+            <section class="progress">
+                <h2 class="sr-only">진행 상황 그래프</h2>
+                <div class="progress-bar-cont">
+                    <div class="progress-bar"></div>
+                </div>
+                <div class="progress-success">Success! 🎉</div>
+            </section>
+            <section class="challenge-table">
+                <h2 class="sr-only">챌린지 스티커 표</h2>
+                <div class="table-item-wrap">
+                </div>
+                <div class="select-sticker">
+                    <h3>"오늘의 나는??</h3>
+                    <ul class="sticker-list">
+                        <li class="sticker-item" id='fun'>
+                            <img src="./src/img/sticker_1.png" alt="sticker" class="sticker">
+                            <span>신남</span>
+                        </li>
+                        <li class="sticker-item" id='awesome'>
+                            <img src="./src/img/sticker_2.png" alt="sticker" class="sticker">
+                            <span>기가막힘</span>
+                        </li>
+                        <li class="sticker-item" id='good'>
+                            <img src="./src/img/sticker_3.png" alt="sticker" class="sticker">
+                            <span>굿!</span>
+                        </li>
+                        <li class="sticker-item" id='sad'>
+                            <img src="./src/img/sticker_4.png" alt="sticker" class="sticker">
+                            <span>&#40;...&#41;</span>
+                        </li>
+                        <li class="sticker-item remove-btn" id='remove'>
+                            <img src="./src/img/remove-sticker.png" alt="sticker" class="sticker">
+                            <span>스티커 떼기</span>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+            <section class="main-buttons">
+                <h2 class="sr-only">메인 버튼 리스트</h2>
+                <button type="button" class="setting-btn fill">Settings</button>
+                <div class="btn-right">
+                    <button type="button" class="share-btn">Share</button>
+                </div>
+            </section>
+        </article>
+        <footer>
+            <div class="footer-wrapper">
+                <div class="copyright">
+                    <div class="logo">
+                        <img src="src/img/weniv_logo.png" alt="weniv">
+                    </div>
+                    <p class="copyright-text">
+                        The copyright of images and contents in this service belongs to WeNiv Co., Ltd.<br>
+                        Modification, redistribution, and unauthorized use may result in legal problems.
+                    </p>
+                </div>
+                <div class="sns-list">
+                    <a href="http://paullab.co.kr" target="_blank">
+                        <img src="src/img/home.png" alt="home">
+                    </a>
+                    <a href="https://www.inflearn.com/users/@jejucoding" target="_blank">
+                        <img src="src/img/infrun_logo.png" alt="home">
+                    </a>
+                    <a href="https://www.youtube.com/channel/UC4GnvNKtuJ4cqWsYjxNxAEQ" target="_blank">
+                        <img src="src/img/youtube.png" alt="home">
+                    </a>
+                    <a href="https://www.instagram.com/weniv_official/?hl=ko" target="_blank">
+                        <img src="src/img/instagram.png" alt="home">
+                    </a>
+                    <a href="https://www.facebook.com/Jejucoding/" target="_blank">
+                        <img src="src/img/facebook.png" alt="home">
+                    </a>
+                </div>
+            </div>
+        </footer>
+    </main>
+    <section class="modal setting">
+        <div class="modal-wrap">
+            <header>
+                <h2>Challenge Settings</h2>
+                <button type="button" class="cancel-btn"></button>
+            </header>
+            <form id="setChallengeForm">
+                <article class="input">
+                    <div class="input-name">
+                        <h3 class="input-title">Title</h3>
+                        <input type="text" name="challengeName" id="challenge-name">
+                    </div>
+                    <div class="input-term">
+                        <h3 class="input-title">Term</h3>
+                        <div class="input-wrap">
+                            <input type="radio" name="challengeTerm" id="day_15" value="15">
+                            <label for="day_15">15days</label>
+                            <input type="radio" name="challengeTerm" id="day_25" value="25">
+                            <label for="day_25">25days</label>
+                            <input type="radio" name="challengeTerm" id="day_30" value="30">
+                            <label for="day_30" value="30">30days</label>
+                            <input type="radio" name="challengeTerm" id="day_60" value="60">
+                            <label for="day_60" value="60">60days</label>
+                        </div>
+                    </div>
+                </article>
+                <section class="modal-buttons">
+                    <h2 class="sr-only">모달 버튼 리스트</h2>
+                    <button type="button" class="reset-btn">Reset</button>
+                    <button type="button" class="save-btn set-btn fill">Save</button>
+                    <div class="confirm-msg">
+                        <p>Are you sure?😭</p>
+                    </div>
+                </section>
+            </form>
+        </div>
+    </section>
+    <section class="modal share">
+        <div class="modal-wrap share-modal-wrap">
+            <header>
+                <h2>서비스 공유하기</h2>
+                <button type="button" class="cancel-btn"></button>
+            </header>
+            <p class="share-info-text">
+                Image Saving is with stickers. <br>
+                We recommend using the Chrome browser, and it may not work with social media browsers and some browsers.
+            </p>
+            <div class="icon-wrap">
+                <button type="button" class="save-btn" id="img-capture-btn"></button>
+                <a id="btnKakao" class="link-icon kakao" href="javascript:shareKakao();"></a>
+                <a id="btnTwitter" class="link-icon twitter" href="javascript:shareTwitter();"></a>
+                <a id="btnFacebook" class="link-icon facebook" href="javascript:shareFacebook();"></a>   
+            </div>
+        </div>
+    </section>
+</div>
+<script src="https://html2canvas.hertzen.com/dist/html2canvas.js"></script>
+<script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
+<script src="src/js/index.js" type="text/javascript"></script>
+</body>
+</html>

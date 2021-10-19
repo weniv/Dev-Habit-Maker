@@ -114,12 +114,13 @@ function addModalEvt(item, idx) {
             stickerStyle(idx, item);
         }
 
-        window.onclick = function(e) {
-            if(e.target != item) {
-                item.classList.remove("selected");
-                selectSticker.classList.remove("active");
-            }
-        };
+
+        // window.onclick = function(e) {
+        //     if(e.target != item) {
+        //         item.classList.remove("selected");
+        //         // selectSticker.classList.remove("active");
+        //     }
+        // };
     }, {capture: true});
 }
 
@@ -235,15 +236,19 @@ stickers.forEach((item,idx)=>{
 
 // 스티커 선택창 스타일 변경
 // tableItem를 클릭할 때마다 스티커 선택창 위치가 변경됨.
-function stickerStyle(i, e){
-    // margin 값을 포함한 tableItem의 width값
-    const tableItemWidth = e.offsetWidth + parseInt(window.getComputedStyle(e).getPropertyValue("margin-bottom"), 10);
-    const index = i % 5;
+function stickerStyle(idx, item){
+    // margin 값을 포함한 tableItem의 height값
+    const height = parseInt(item.offsetHeight, 10) + parseInt(window.getComputedStyle(item).getPropertyValue("margin-bottom"), 10);
 
-    selectSticker.style.top = `${tableItemWidth+e.offsetTop}px`;
-    selectSticker.style.left = index >= 1 ? `${tableItem[1].offsetLeft}px` : `${e.offsetLeft}px`;
+    // tableItem의 절대좌표 구하기
+    const clientRect = item.getBoundingClientRect();
+    const relativeTop = clientRect.top;
+    const scrolledTopLength = window.pageYOffset;
+    const absoluteTop = scrolledTopLength + relativeTop;
 
-    selectedItem = i;
+    selectSticker.style.top = `${absoluteTop+height}px`;
+
+    selectedItem = idx;
 }
 
 //스크린샷 기능
@@ -326,4 +331,12 @@ window.onclick = function(e) {
         resetBtn.innerText = "Reset";
         resetBtn.classList.remove("check");
     }
+
+    
+    // if(e.target != selectSticker) {
+    //     // item.classList.remove("selected");
+    //     if(selectSticker.classList.contains("active")){
+    //         selectSticker.classList.remove("active");
+    //     }
+    // }
 };

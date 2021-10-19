@@ -236,17 +236,35 @@ button.fill {
     height: 70px;
 }
 
+/* .sticker-container {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    color: #4F4F4F;
+    background-color: rgba(0, 0, 0, 0.2);
+    z-index: 2;
+} */
+
 /* 스티커 선택 모달 */
 .select-sticker {
     display: none;
     position: absolute;
-    /* left: 50%;
-    transform: translateX(-50%); */
+    top: 0;
+    /* left: 21px; */
+    left: 50%;
+    transform: translateX(-50%);
     padding: 15px 16px 14px;
     background-color: #FFF;
     box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.25);
     border-radius: 10px;
     z-index: 2;
+    box-sizing: border-box;
+    width: 404px;
+    height: 331px;
+    padding: 20px 22px;
 }
 
 /* table-item 클릭시 active 클래스 추가 */
@@ -259,14 +277,46 @@ button.fill {
     font-size: 13px;
     font-weight: 700;
     text-align: center;
-    margin-bottom: 6px;
+    margin-bottom: 24px;
+}
+
+/* 스티커 검색창 */
+#searchSticker {
+    position: relative;
+}
+.search-btn {
+    position: absolute;
+    top: 4px;
+    left: 7px;
+    width: 20px;
+    height: 20px;
+    background: url(../img/search.png);
+    border: none;
+    border-radius: 0%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.search-input {
+    width: 360px;
+    height: 28px;
+    box-sizing: border-box;
+    padding: 4px 34px;
+    border: none;
+    border-bottom: solid 2px #C4C4C4;
+    margin-bottom: 24px;
 }
 
 /* 스티커 리스트 */
 .sticker-list {
     display: flex;
+    flex-wrap: wrap;
     color: #828282;
     font-size: 12px;
+    justify-content: space-between;
+    height: 202px;
+    overflow-y: scroll;
 }
 
 /* 스티커 아이템 */
@@ -275,22 +325,22 @@ button.fill {
     flex-direction: column;
     align-items: center;
     cursor: url(../img/cursor_pointer.cur) 16 16, pointer;
-    margin-right: 14px;
+    /* margin-right: 14px; */
 }
 
-.sticker-item:nth-child(4) {
+.sticker-item:nth-child(5n) {
     margin: 0;
 }
 
 /* .select-sticker에 .add-remove-btn 추가되면 .remove-btn 활성화 */
-.sticker-item.remove-btn {
+/* .sticker-item.remove-btn {
     display: none;
-}
+} */
 
-.select-sticker.add-remove-btn .remove-btn {
+/* .select-sticker.add-remove-btn .remove-btn {
     display: flex;
     margin: 0 0 0 14px;
-}
+} */
 
 /* 스티커 이미지 */
 .sticker-item > .sticker {

@@ -130,7 +130,7 @@ button.fill {
 
 /* 상태바 컨테이너 */
 .progress-bar-cont {
-    width: 353px;
+    width: 357px;
     height: 30px;
     border-radius: 20px;
     background-color: #FFF;
@@ -226,45 +226,28 @@ button.fill {
 .table-item > div {
     animation-name: sticker; 
     animation-duration: 1.7s; 
-    width: 70px;
-    height: 70px;
     z-index: 1;
 }
 
 .table-item .sticker {
-    width: 70px;
-    height: 70px;
+    width: 54px;
+    height: 54px;
 }
-
-/* .sticker-container {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    color: #4F4F4F;
-    background-color: rgba(0, 0, 0, 0.2);
-    z-index: 2;
-} */
 
 /* 스티커 선택 모달 */
 .select-sticker {
     display: none;
     position: absolute;
     top: 0;
-    /* left: 21px; */
     left: 50%;
     transform: translateX(-50%);
-    padding: 15px 16px 14px;
     background-color: #FFF;
-    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.25);
+    border: 1px solid #BDBDBD;
     border-radius: 10px;
     z-index: 2;
     box-sizing: border-box;
     width: 404px;
-    height: 331px;
-    padding: 20px 22px;
+    height: 320px;
 }
 
 /* table-item 클릭시 active 클래스 추가 */
@@ -277,17 +260,21 @@ button.fill {
     font-size: 13px;
     font-weight: 700;
     text-align: center;
-    margin-bottom: 24px;
+    padding: 18px 0 16px;
 }
 
 /* 스티커 검색창 */
 #searchSticker {
     position: relative;
+    border-top: 1px solid #C4C4C4;
+    border-bottom: 1px solid #C4C4C4;
+    margin-bottom: 24px;
+
 }
 .search-btn {
     position: absolute;
-    top: 4px;
-    left: 7px;
+    top: 7px;
+    left: 20px;
     width: 20px;
     height: 20px;
     background: url(../img/search.png);
@@ -299,24 +286,31 @@ button.fill {
 }
 
 .search-input {
-    width: 360px;
-    height: 28px;
+    width: 100%;
+    height: 34px;
     box-sizing: border-box;
-    padding: 4px 34px;
+    padding: 0 22.5px 0 53px;
     border: none;
-    border-bottom: solid 2px #C4C4C4;
-    margin-bottom: 24px;
+}
+
+.search-input:focus {
+    outline: none;
+    box-shadow: 0 0 4px #956BD9;
+}
+
+.search-input::placeholder {
+    font-size: 13px;
+    color: #BDBDBD;
 }
 
 /* 스티커 리스트 */
 .sticker-list {
     display: flex;
     flex-wrap: wrap;
-    color: #828282;
-    font-size: 12px;
-    justify-content: space-between;
-    height: 202px;
+    height: 195px;
+    box-sizing: border-box;
     overflow-y: scroll;
+    padding: 0 29px 0 19px;
 }
 
 /* 스티커 아이템 */
@@ -325,28 +319,19 @@ button.fill {
     flex-direction: column;
     align-items: center;
     cursor: url(../img/cursor_pointer.cur) 16 16, pointer;
-    /* margin-right: 14px; */
+    margin: 0 16px 16px 0;
+    width: 58px;
+    height: 58px;
 }
 
 .sticker-item:nth-child(5n) {
     margin: 0;
 }
 
-/* .select-sticker에 .add-remove-btn 추가되면 .remove-btn 활성화 */
-/* .sticker-item.remove-btn {
-    display: none;
-} */
-
-/* .select-sticker.add-remove-btn .remove-btn {
-    display: flex;
-    margin: 0 0 0 14px;
-} */
-
 /* 스티커 이미지 */
 .sticker-item > .sticker {
-    width: 62px;
-    height: 62px;
-    margin-bottom: 5px;
+    width: 58px;
+    height: 58px;
 }
 
 /* 메인 버튼 리스트 */
@@ -749,7 +734,7 @@ footer .sns-list a > img {
     }
 
     .progress-bar-cont {
-        width: 240px;
+        width: 247px;
         height: 20px;
         padding: 3px;
         margin-right: 8px;
@@ -776,31 +761,57 @@ footer .sns-list a > img {
         margin: 0 0 10px 0;
     }
 
-    .table-item > div {
-        width: 50px;
-        height: 50px;
-    }
-    
     .table-item .sticker {
-        width: 50px;
-        height: 50px;
+        width: 34px;
+        height: 34px;
+    }
+
+    .select-sticker {
+        width: 290px;
+        height: 320px;
     }
 
     .select-sticker h3 {
         font-size: 10px;
     }
 
-    .sticker-list {
+    #searchSticker {
+        margin-bottom: 24px;
+
+    }
+
+    .search-btn {
+        top: 7px;
+        left: 20px;
+        width: 20px;
+        height: 20px;
+    }
+
+    .search-input {
+        height: 34px;
+        box-sizing: border-box;
+        padding: 0 22.5px 0 53px;
+        border: none;
         font-size: 10px;
     }
 
-    .sticker-item {
-        margin-right: 12px;
+    .search-input::placeholder {
+        font-size: 10px;
     }
 
-    .select-sticker.add-remove-btn .remove-btn {
+    .sticker-list {
+        padding: 0 15px;
+    }
+
+    .sticker-item {
+        width: 42px;
+        height: 42px;
+        margin: 0 12px 12px 0;
+    }
+
+    /* .select-sticker.add-remove-btn .remove-btn {
         margin: 0 0 0 12px;
-    }    
+    }     */
 
     .sticker-item > .sticker{
         width: 42px;

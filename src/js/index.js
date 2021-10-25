@@ -1,4 +1,3 @@
-// 챌린지 설정(수정)하기 모달창 띄우기
 const settingBtn = document.querySelector(".setting-btn");
 const shareBtn = document.querySelector(".share-btn")
 const settingModal = document.querySelector(".setting");
@@ -12,6 +11,25 @@ const app = document.getElementsByClassName("table-item-wrap")[0];
 
 let selectedItem;
 let appData = {};
+
+function getData() {
+    // const loadingContainer = document.querySelector(".loading-container");
+    // const resultContainer = document.querySelector(".result-container");
+  
+  
+    fetch("src/js/data.json")
+      .then((response) => response.json())
+      .then(data => {
+          console.log(data);
+        
+        // const developerData = data[developerPk - 1];
+  
+        // // setElement 호출
+        // setElement(developerData);
+      });
+}
+  
+getData();
 
 const saveBtn = document.querySelector('#img-capture-btn');
 
@@ -113,7 +131,6 @@ function addModalEvt(item, idx) {
             selectSticker.classList.add("active");
             stickerStyle(idx, item);
         }
-
 
         // window.onclick = function(e) {
         //     if(e.target != item) {

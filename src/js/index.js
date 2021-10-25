@@ -13,19 +13,11 @@ let selectedItem;
 let appData = {};
 
 function getData() {
-    // const loadingContainer = document.querySelector(".loading-container");
-    // const resultContainer = document.querySelector(".result-container");
-  
   
     fetch("src/js/data.json")
       .then((response) => response.json())
       .then(data => {
           console.log(data);
-        
-        // const developerData = data[developerPk - 1];
-  
-        // // setElement 호출
-        // setElement(developerData);
       });
 }
   

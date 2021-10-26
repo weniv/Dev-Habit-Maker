@@ -2,572 +2,572 @@
     {
         "pk":0,
         "name":"adobeaftereffects",
-        "img": "../img/icon/adobe-aftereffects.png"
+        "img": "/src/img/icon/adobe-aftereffects.png"
     },
     {
         "pk":1,
         "name":"adobedreamweaver",
-        "img": "../img/icon/Adobe-Dreamweaver.png"
+        "img": "/src/img/icon/Adobe-Dreamweaver.png"
     },
     {
         "pk":2,
         "name":"adobeillustrator",
-        "img": "../img/icon/Adobe-Illustrator.png"
+        "img": "/src/img/icon/Adobe-Illustrator.png"
     },
     {
         "pk":3,
         "name":"adobeindesign",
-        "img": "../img/icon/adobe-indesign.svg"
+        "img": "/src/img/icon/adobe-indesign.svg"
     },
     {
         "pk":4,
         "name":"adobelightroom",
-        "img": "../img/icon/adobe-lightroom.png"
+        "img": "/src/img/icon/adobe-lightroom.png"
     },
     {
         "pk":5,
         "name":"adobephotoshop",
-        "img": "../img/icon/adobe-photoshop.png"
+        "img": "/src/img/icon/adobe-photoshop.png"
     },
     {
         "pk":6,
         "name":"adobepremierepro",
-        "img": "../img/icon/adobe-premierepro.png"
+        "img": "/src/img/icon/adobe-premierepro.png"
     },
     {
         "pk":7,
         "name":"adobexd",
-        "img": "../img/icon/adobe-xd.png"
+        "img": "/src/img/icon/adobe-xd.png"
     },
     {
         "pk":8,
         "name":"amazonwebservices",
-        "img": "../img/icon/amazonwebservices.svg"
+        "img": "/src/img/icon/amazonwebservices.svg"
     },
     {
         "pk":9,
         "nameeng":"android",
-        "img": "../img/icon/android.svg"
+        "img": "/src/img/icon/android.svg"
     },
     {
         "pk":10,
         "name":"angularjs",
-        "img": "../img/icon/angularjs.svg"
+        "img": "/src/img/icon/angularjs.svg"
     },
     {
         "pk":11,
         "name":"ansible",
-        "img": "../img/icon/ansible.png"
+        "img": "/src/img/icon/ansible.png"
     },
     {
         "pk":12,
         "name":"apachecassandra",
-        "img": "../img/icon/apache_cassandra.svg"
+        "img": "/src/img/icon/apache_cassandra.svg"
     },
     {
         "pk":13,
         "name":"apachehadoop",
-        "img": "../img/icon/apache_hadoop.svg"
+        "img": "/src/img/icon/apache_hadoop.svg"
     },
     {
         "pk":14,
         "name":"apachekafka",
-        "img": "../img/icon/apache_kafka.svg"
+        "img": "/src/img/icon/apache_kafka.svg"
     },
     {
         "pk":15,
         "name":"apachesolr",
-        "img": "../img/icon/apache_solr.svg"
+        "img": "/src/img/icon/apache_solr.svg"
     },
     {
         "pk":16,
         "name":"arduino",
-        "img": "../img/icon/arduino.png"
+        "img": "/src/img/icon/arduino.png"
     },
     {
         "pk":17,
         "name":"backbonejs",
-        "img": "../img/icon/backbonejs.svg"
+        "img": "/src/img/icon/backbonejs.svg"
     },
     {
         "pk":18,
         "name":"bem",
-        "img": "../img/icon/bem.svg"
+        "img": "/src/img/icon/bem.svg"
     },
     {
         "pk":19,
         "name":"blender3D",
-        "img": "../img/icon/blender-3D.svg"
+        "img": "/src/img/icon/blender-3D.svg"
     },
     {
         "pk":20,
         "name":"Bootstrap",
-        "img": "../img/icon/Bootstrap.png"
+        "img": "/src/img/icon/Bootstrap.png"
     },
     {
         "pk":21,
         "name":"c++",
-        "img": "../img/icon/c-plusplus.svg"
+        "img": "/src/img/icon/c-plusplus.svg"
     },
     {
         "pk":22,
         "name":"c#",
-        "img": "../img/icon/c-sharp.svg"
+        "img": "/src/img/icon/c-sharp.svg"
     },
     {
         "pk":23,
         "name":"c",
-        "img": "../img/icon/c.svg"
+        "img": "/src/img/icon/c.svg"
     },
     {
         "pk":24,
         "name-":"chai",
-        "img": "../img/icon/chai.png"
+        "img": "/src/img/icon/chai.png"
     },
     {
         "pk":25,
         "name":"chartjs",
-        "img": "../img/icon/chartjs.svg"
+        "img": "/src/img/icon/chartjs.svg"
     },
     {
         "pk":26,
         "name":"codeigniter",
-        "img": "../img/icon/codeigniter.svg"
+        "img": "/src/img/icon/codeigniter.svg"
     },
     {
         "pk":27,
         "name":"css3",
-        "img": "../img/icon/css3.svg"
+        "img": "/src/img/icon/css3.svg"
     },
     {
         "pk":28,
         "name":"d3js",
-        "img": "../img/icon/d3.png"
+        "img": "/src/img/icon/d3.png"
     },
     {
         "pk":29,
         "name":"dart",
-        "img": "../img/icon/dartlang.svg"
+        "img": "/src/img/icon/dartlang.svg"
     },
     {
         "pk":30,
         "name":"deno",
-        "img": "../img/icon/deno.svg"
+        "img": "/src/img/icon/deno.svg"
     },
     {
         "pk":31,
         "name":"django",
-        "img": "../img/icon/django.svg"
+        "img": "/src/img/icon/django.svg"
     },
     {
         "pk":32,
         "name":"docker",
-        "img": "../img/icon/docker.svg"
+        "img": "/src/img/icon/docker.svg"
     },
     {
         "pk":33,
         "name":".dotnetcore",
-        "img": "../img/icon/dotnetcore.png"
+        "img": "/src/img/icon/dotnetcore.png"
     },
     {
         "pk":34,
         "name":"elasticsearch",
-        "img": "../img/icon/elasticsearch.png"
+        "img": "/src/img/icon/elasticsearch.png"
     },
     {
         "pk":35,
         "name":"electron",
-        "img": "../img/icon/electron.svg"
+        "img": "/src/img/icon/electron.svg"
     },
     {
         "pk":36,
         "name":"express",
-        "img": "../img/icon/express.svg"
+        "img": "/src/img/icon/express.svg"
     },
     {
         "pk":37,
         "name":"figma",
-        "img": "../img/icon/figma.svg"
+        "img": "/src/img/icon/figma.svg"
     },
     {
         "pk":38,
         "name":"firebase",
-        "img": "../img/icon/firebase.png"
+        "img": "/src/img/icon/firebase.png"
     },
     {
         "pk":39,
         "name":"flask",
-        "img": "../img/icon/flask.png"
+        "img": "/src/img/icon/flask.png"
     },
     {
         "pk":40,
         "name":"flutter",
-        "img": "../img/icon/flutterio.svg"
+        "img": "/src/img/icon/flutterio.svg"
     },
     {
         "pk":41,
         "name":"gatsbyjs",
-        "img": "../img/icon/gatsby.png"
+        "img": "/src/img/icon/gatsby.png"
     },
     {
         "pk":42,
         "name":"gitscm",
-        "img": "../img/icon/git-scm.svg"
+        "img": "/src/img/icon/git-scm.svg"
     },
     {
         "pk":43,
         "name":"gitlab",
-        "img": "../img/icon/gitlab.svg"
+        "img": "/src/img/icon/gitlab.svg"
     },
     {
         "pk":44,
         "name":"gnubash",
-        "img": "../img/icon/gnu_bash.svg"
+        "img": "/src/img/icon/gnu_bash.svg"
     },
     {
         "pk":45,
         "name":"go",
-        "img": "../img/icon/go.svg"
+        "img": "/src/img/icon/go.svg"
     },
     {
         "pk":46,
         "name":"googlecloud",
-        "img": "../img/icon/google_cloud.svg"
+        "img": "/src/img/icon/google_cloud.svg"
     },
     {
         "pk":47,
         "name":"grafana",
-        "img": "../img/icon/grafana.png"
+        "img": "/src/img/icon/grafana.png"
     },
     {
         "pk":48,
         "name":"graphql",
-        "img": "../img/icon/graphql.png"
+        "img": "/src/img/icon/graphql.png"
     },
     {
         "pk":49,
         "name":"gulp",
-        "img": "../img/icon/gulp.png"
+        "img": "/src/img/icon/gulp.png"
     },
     {
         "pk":50,
         "name":"haskell",
-        "img": "../img/icon/haskell.png"
+        "img": "/src/img/icon/haskell.png"
     },
     {
         "pk":51,
         "name":"html5",
-        "img": "../img/icon/html5.svg"
+        "img": "/src/img/icon/html5.svg"
     },
     {
         "pk":52,
         "name":"influxdb",
-        "img": "../img/icon/influxdb.svg"
+        "img": "/src/img/icon/influxdb.svg"
     },
     {
         "pk":53,
         "name":"invision",
-        "img": "../img/icon/invision.svg"
+        "img": "/src/img/icon/invision.svg"
     },
     {
         "pk":54,
         "name":"java",
-        "img": "../img/icon/java.svg"
+        "img": "/src/img/icon/java.svg"
     },
     {
         "pk":55,
         "name":"javascript",
-        "img": "../img/icon/javascript.svg"
+        "img": "/src/img/icon/javascript.svg"
     },
     {
         "pk":56,
         "name":"jenkins",
-        "img": "../img/icon/jenkins.svg"
+        "img": "/src/img/icon/jenkins.svg"
     },
     {
         "pk":57,
         "name":"jquery",
-        "img": "../img/icon/jquery.png"
+        "img": "/src/img/icon/jquery.png"
     },
     {
         "pk":58,
         "name":"jenkins",
-        "img": "../img/icon/jenkins.svg"
+        "img": "/src/img/icon/jenkins.svg"
     },
     {
         "pk":59,
         "name":"keras",
-        "img": "../img/icon/keras.png"
+        "img": "/src/img/icon/keras.png"
     },
     {
         "pk":60,
         "name":"kibana",
-        "img": "../img/icon/kibana.png"
+        "img": "/src/img/icon/kibana.png"
     },
     {
         "pk":61,
         "name":"kotlin",
-        "img": "../img/icon/kotlinlang.svg"
+        "img": "/src/img/icon/kotlinlang.svg"
     },
     {
         "pk":62,
         "name":"kubernetes",
-        "img": "../img/icon/kubernetes.svg"
+        "img": "/src/img/icon/kubernetes.svg"
     },
     {
         "pk":63,
         "name":"laravel",
-        "img": "../img/icon/laravel.svg"
+        "img": "/src/img/icon/laravel.svg"
     },
     {
         "pk":64,
         "name":"latex",
-        "img": "../img/icon/latex.png"
+        "img": "/src/img/icon/latex.png"
     },
     {
         "pk":65,
         "name":"linux",
-        "img": "../img/icon/linux.svg"
+        "img": "/src/img/icon/linux.svg"
     },
     {
         "pk":66,
         "name":"mariadb",
-        "img": "../img/icon/mariadb.png"
+        "img": "/src/img/icon/mariadb.png"
     },
     {
         "pk":67,
         "name":"meteor",
-        "img": "../img/icon/meteor.svg"
+        "img": "/src/img/icon/meteor.svg"
     },
     {
         "pk":68,
         "name":"microsoftazure",
-        "img": "../img/icon/microsoft_azure.svg"
+        "img": "/src/img/icon/microsoft_azure.svg"
     },
     {
         "pk":69,
         "name":"microsoftdotnet",
-        "img": "../img/icon/microsoft-dot-net.svg"
+        "img": "/src/img/icon/microsoft-dot-net.svg"
     },
     {
         "pk":70,
         "name":"mocha",
-        "img": "../img/icon/mocha.png"
+        "img": "/src/img/icon/mocha.png"
     },
     {
         "pk":71,
         "name":"mongodb",
-        "img": "../img/icon/mongodb.svg"
+        "img": "/src/img/icon/mongodb.svg"
     },
     {
         "pk":72,
         "name":"mysql",
-        "img": "../img/icon/mysql.svg"
+        "img": "/src/img/icon/mysql.svg"
     },
     {
         "pk":73,
         "name":"nativescript",
-        "img": "../img/icon/nativescript.png"
+        "img": "/src/img/icon/nativescript.png"
     },
     {
         "pk":74,
         "name":"nestjs",
-        "img": "../img/icon/nestjs.svg"
+        "img": "/src/img/icon/nestjs.svg"
     },
     {
         "pk":75,
         "name":"nginx",
-        "img": "../img/icon/nginx"
+        "img": "/src/img/icon/nginx.svg"
     },
     {
         "pk":76,
         "name":"nodejs",
-        "img": "../img/icon/nodejs.svg"
+        "img": "/src/img/icon/nodejs.svg"
     },
     {
         "pk":77,
         "name":"nuxt",
-        "img": "../img/icon/nuxt.png"
+        "img": "/src/img/icon/nuxt.png"
     },
     {
         "pk":78,
         "name":"opencv",
-        "img": "../img/icon/opencv.svg"
+        "img": "/src/img/icon/opencv.svg"
     },
     {
         "pk":79,
         "name":"openstack",
-        "img": "../img/icon/openstack.png"
+        "img": "/src/img/icon/openstack.png"
     },
     {
         "pk":80,
         "name":"oracle",
-        "img": "../img/icon/oracle.svg"
+        "img": "/src/img/icon/oracle.svg"
     },
     {
         "pk":81,
         "name":"php",
-        "img": "../img/icon/php.png"
+        "img": "/src/img/icon/php.png"
     },
     {
         "pk":82,
         "name":"postgresql",
-        "img": "../img/icon/postgresql.svg"
+        "img": "/src/img/icon/postgresql.svg"
     },
     {
         "pk":83,
         "name":"powerbi",
-        "img": "../img/icon/powerbi.png"
+        "img": "/src/img/icon/powerbi.png"
     },
     {
         "pk":84,
         "name":"powershell",
-        "img": "../img/icon/powershell.png"
+        "img": "/src/img/icon/powershell.png"
     },
     {
         "pk":85,
         "name":"prisma",
-        "img": "../img/icon/prisma.png"
+        "img": "/src/img/icon/prisma.png"
     },
     {
         "pk":86,
         "name":"python",
-        "img": "../img/icon/python.svg"
+        "img": "/src/img/icon/python.svg"
     },
     {
         "pk":87,
         "name":"pytorch",
-        "img": "../img/icon/pytorch.svg"
+        "img": "/src/img/icon/pytorch.svg"
     },
     {
         "pk":88,
         "name":"R",
-        "img": "../img/icon/R.svg"
+        "img": "/src/img/icon/R.svg"
     },
     {
         "pk":89,
         "name":"rabbitmq",
-        "img": "../img/icon/rabbitmq.svg"
+        "img": "/src/img/icon/rabbitmq.svg"
     },
     {
         "pk":90,
         "name":"raspberrypi",
-        "img": "../img/icon/raspberrypi.png"
+        "img": "/src/img/icon/raspberrypi.png"
     },
     {
         "pk":91,
         "name":"react",
-        "img": "../img/icon/react.svg"
+        "img": "/src/img/icon/react.svg"
     },
     {
         "pk":92,
         "name":"redis",
-        "img": "../img/icon/redis.svg"
+        "img": "/src/img/icon/redis.svg"
     },
     {
         "pk":93,
         "name":"redux",
-        "img": "../img/icon/redux.svg"
+        "img": "/src/img/icon/redux.svg"
     },
     {
         "pk":94,
         "name":"rubyonrails",
-        "img": "../img/icon/ruby-on-rails.svg"
+        "img": "/src/img/icon/ruby-on-rails.svg"
     },
     {
         "pk":95,
         "name":"ruby",
-        "img": "../img/icon/ruby.svg"
+        "img": "/src/img/icon/ruby.svg"
     },
     {
         "pk":96,
         "name":"rust",
-        "img": "../img/icon/rust.svg"
+        "img": "/src/img/icon/rust.svg"
     },
     {
         "pk":97,
         "name":"salesforce",
-        "img": "../img/icon/salesforce.png"
+        "img": "/src/img/icon/salesforce.png"
     },
     {
         "pk":98,
         "name":"sass",
-        "img": "../img/icon/sass.svg"
+        "img": "/src/img/icon/sass.svg"
     },
     {
         "pk":99,
         "name":"scala",
-        "img": "../img/icon/scala.svg"
+        "img": "/src/img/icon/scala.svg"
     },
     {
         "pk":100,
         "name":"spring",
-        "img": "../img/icon/springio.svg"
+        "img": "/src/img/icon/springio.svg"
     },
     {
         "pk":101,
         "name":"swift",
-        "img": "../img/icon/swift.svg"
+        "img": "/src/img/icon/swift.svg"
     },
     {
         "pk":102,
         "name":"symfony",
-        "img": "../img/icon/symfony"
+        "img": "/src/img/icon/symfony.svg"
     },
     {
         "pk":103,
         "name":"tableau",
-        "img": "../img/icon/tableau.svg"
+        "img": "/src/img/icon/tableau.svg"
     },
     {
         "pk":104,
         "name":"tensorflow",
-        "img": "../img/icon/tensorflow.svg"
+        "img": "/src/img/icon/tensorflow.svg"
     },
     {
         "pk":105,
         "name":"terraform",
-        "img": "../img/icon/terraformio.svg"
+        "img": "/src/img/icon/terraformio.svg"
     },
     {
         "pk":106,
         "name":"typescript",
-        "img": "../img/icon/typescript.svg"
+        "img": "/src/img/icon/typescript.svg"
     },
     {
         "pk":107,
         "name":"unity",
-        "img": "../img/icon/unity.png"
+        "img": "/src/img/icon/unity.png"
     },
     {
         "pk":109,
         "name":"vuejs",
-        "img": "../img/icon/vuejs.svg"
+        "img": "/src/img/icon/vuejs.svg"
     },
     {
         "pk":110,
         "name":"webpack",
-        "img": "../img/icon/webpack.svg"
+        "img": "/src/img/icon/webpack.svg"
     },
     {
         "pk":111,
         "name":"woocommerce",
-        "img": "../img/icon/woocommerce.png"
+        "img": "/src/img/icon/woocommerce.png"
     },
     {
         "pk":112,
         "name":"wordpress",
-        "img": "../img/icon/wordpress.png"
+        "img": "/src/img/icon/wordpress.png"
     },
     {
         "pk":113,
         "name":"xaml",
-        "img": "../img/icon/xaml.png"
+        "img": "/src/img/icon/xaml.png"
     },
     {
         "pk":114,
         "name":"xampp",
-        "img": "../img/icon/xampp.png"
+        "img": "/src/img/icon/xampp.png"
     }
 ]
 

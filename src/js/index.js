@@ -8,20 +8,33 @@ const stickers = document.querySelectorAll(".sticker");
 const setBtn = document.querySelector(".set-btn");
 const progressBar = document.querySelector(".progress-bar");
 const app = document.getElementsByClassName("table-item-wrap")[0];
+const challengeTable = document.querySelector(".challenge-table");
+const selectSticker = document.querySelector(".select-sticker");
 
 let selectedItem;
 let appData = {};
 
 function getData() {
-  
     fetch("src/js/data.json")
       .then((response) => response.json())
       .then(data => {
-          console.log(data);
+          setStickerElement(data);
       });
 }
   
 getData();
+
+function setStickerElement(data) {
+    const stickerList = document.querySelector(".sticker-list");
+
+    for(let i of data){
+        stickerList.innerHTML += `
+        <li class="sticker-item" id='${i.name}'>
+            <img src="${i.img}" alt="sticker" class="sticker">
+        </li>
+        `;
+    }
+}
 
 const saveBtn = document.querySelector('#img-capture-btn');
 
@@ -127,7 +140,7 @@ function addModalEvt(item, idx) {
         // window.onclick = function(e) {
         //     if(e.target != item) {
         //         item.classList.remove("selected");
-        //         // selectSticker.classList.remove("active");
+        //         selectSticker.classList.remove("active");
         //     }
         // };
     }, {capture: true});
@@ -232,9 +245,6 @@ resetBtn.addEventListener("click", function(){
 
 // 스티커 추가 이벤트
 const tableItem = document.querySelectorAll(".table-item");
-const challengeTable = document.querySelector(".challenge-table");
-const selectSticker = document.querySelector(".select-sticker");
-
 
 stickers.forEach((item,idx)=>{
     const idx1 = idx;

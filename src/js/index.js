@@ -341,19 +341,15 @@ githubBtn.addEventListener("click", function(){
         githubInfoMsg.innerHTML = "<p>Increase the page horizontally for <span>Github upload</span></p>";
         challengeTable.classList.remove("github");
         mainbuttons.classList.remove("github");
+        selectSticker.classList.remove("github");
     } else {
         githubBtn.classList.add("capture");
         githubInfoMsg.innerHTML = "<p>Go back to the original screen.</p>";
         challengeTable.classList.add("github");
         mainbuttons.classList.add("github");
+        selectSticker.classList.add("github");
     }
 });
-
-// const captureBtn = document.querySelector(".capture");
-
-// if(captureBtn) {
-//     captureBtn.addEventListener("click")
-// }
 
 // 모달창 닫기
 window.onclick = function(e) {

@@ -256,6 +256,10 @@ button.fill {
     height: 320px;
 }
 
+.select-sticker.github {
+    width: 808px;
+}
+
 /* table-item 클릭시 active 클래스 추가 */
 .select-sticker.active {
     display: block;
@@ -330,7 +334,15 @@ button.fill {
     height: 58px;
 }
 
+.select-sticker.github .sticker-item {
+    margin: 0 19.7px 16px 0;
+}
+
 .sticker-item:nth-child(5n) {
+    margin: 0;
+}
+
+.select-sticker.github .sticker-item:nth-child(10n) {
     margin: 0;
 }
 
@@ -1021,5 +1033,21 @@ footer .sns-list a > img {
     
     .challenge-table.github .table-item:nth-child(5n) {
         margin: 0 0 12px 0;
+    }
+
+    .select-sticker.github {
+        width: 404px;
+    }
+
+    .select-sticker.github .sticker-item {
+        margin: 0 16px 16px 0;
+    }
+
+    .select-sticker.github .sticker-item:nth-child(10n) {
+        margin: 0 16px 16px 0;
+    }
+
+    .select-sticker.github .sticker-item:nth-child(5n) {
+        margin: 0;
     }
 }

@@ -15,8 +15,12 @@
     overflow:hidden;
 }
 
+html {
+    position: relative;
+}
+
 html, body {
-    height: 100%;
+    min-height: 100%;
 }
 
 body {
@@ -78,14 +82,6 @@ button.fill {
 }
 
 /* 메인 컨텐츠 */
-.main-contents {
-    /* position: absolute;
-    top: 116px; */
-    /* left: 50%;
-    transform: translateX(-50%); */
-    width: 100%;
-}
-
 /* 메인 컨텐츠 - 헤더 */
 .contents-header {
     text-align: center;
@@ -110,14 +106,12 @@ button.fill {
 }
 
 /* 메인 컨텐츠 - article */
-.main-contents article {
+.challenge-contents{
     display: flex;
     flex-direction: column;
     align-items: center;
-}
-
-.challenge-contents{
-    padding: 110px 0 131px;
+    padding-top: 110px;
+    margin-bottom: 300px;
 }
 
 /* 상태바 */
@@ -168,6 +162,10 @@ button.fill {
     margin-bottom: 40px;
 }
 
+.challenge-table.github {
+    width: 856px;
+}
+
 /* 챌린지 테이블 wrapper */
 .table-item-wrap {
     display: flex;
@@ -198,6 +196,14 @@ button.fill {
 
 /* table-item 중 5의 배수 자식들은 margin-right=0 */
 .challenge-table .table-item:nth-child(5n) {
+    margin: 0 0 12px 0;
+}
+
+.challenge-table.github .table-item:nth-child(5n) {
+    margin: 0 12px 12px 0;
+}
+
+.challenge-table.github .table-item:nth-child(10n) {
     margin: 0 0 12px 0;
 }
 
@@ -339,6 +345,11 @@ button.fill {
     display: flex;
     justify-content: space-between;
     width: 446px;
+    transition: all .3s;
+}
+
+.main-buttons.github {
+    width: 856px;
 }
 
 /* 챌린지 설정하기 버튼 */
@@ -346,18 +357,33 @@ button.fill {
     width: 140px;
 }
 
-/* 저장, 공유 버튼 */
-.main-buttons .save-btn, .main-buttons .share-btn {
-    width: 119px;
+/* github, 공유 버튼 */
+.main-buttons .btn-right {
+    display: flex;
+    position: relative;
 }
 
-.main-buttons .save-btn {
+.main-buttons .github-btn {
+    display: flex;
     margin-right: 12px;
+    width: 40px;
+    height: 40px;
+    background: url(../img/github.png) center 60% no-repeat;
+    background-size: 24px 24px;
+    border-radius: 100%;
+}
+
+/* capture 클래스가 추가되면 버튼 색상이 변경됩니다. */
+.main-buttons .github-btn.capture {
+    background: url(../img/github_white.png) center 60% no-repeat;
+    background-size: 24px 24px;
+    background-color: #956BD9;
 }
 
 .main-buttons .share-btn {
     position: relative;
     padding: 0 18px 0 45px;
+    width: 119px;
 }
 
 .main-buttons .share-btn::after {
@@ -366,18 +392,61 @@ button.fill {
     left: 18px;
     top: 50%;
     transform: translateY(-10px);
-    background: url(../img/share.png);
+    background: url(../img/share.png) center no-repeat;
+    background-size: contain;
     width: 20px;
     height: 20px;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: contain;
+}
+
+/* 깃헙 버튼 메시지 */
+.github-info-msg {
+    display: none;
+    position: absolute;
+    left: -95px;
+    top: 54px;
+    width: 230px;
+    box-sizing: border-box;
+    background: #333333;
+    color: #FFF;
+    border-radius: 5px;
+}
+
+.github-btn:hover ~ .github-info-msg {
+    display: block;
+}
+
+.github-info-msg::after {
+    position: absolute;
+    content: "";
+    left: 50%;
+    top: 0;
+    transform: translateX(-50%) translateY(-50%);
+    width: 0;
+    height: 0;
+    border-bottom: 15px solid #333333;
+    border-right: 10px solid transparent;
+    border-left: 10px solid  transparent;
+}
+
+.github-info-msg p {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 15px;
+    padding: 10px 14px 10px 15px;
+    text-align: center;
+}
+
+.github-info-msg p span {
+    font-weight: 700;
+    color: #FFE973;
 }
 
 /* footer */
 footer {
+    position: absolute;
     left: 0;
     bottom: 0;
+    width: 100%;
     background-color: #FFF;
     color: #828282;
     font-family: 'Noto Sans KR', sans-serif;
@@ -429,7 +498,6 @@ footer .sns-list a:first-child {
 footer .sns-list a > img {
     width: 100%;
 }
-
 
 /*모달창 */
 .modal {
@@ -653,22 +721,13 @@ footer .sns-list a > img {
 .confirm-msg {
     display: none;
     position: absolute;
-    left: -24px;
+    left: -10px;
     top: -48px;
-    width: 180px;
+    width: 150px;
     background: #333333;
     color: #FFF;
     font-size: 14px;
     border-radius: 5px;
-}
-
-.share-info-text {
-    padding: 15px;
-    line-height: 2;
-    font-size: 15px;
-    text-align: center;
-    border-top: 1px solid #E0E0E0;
-    border-bottom: 1px solid #E0E0E0;
 }
 
 .confirm-msg::after {
@@ -687,6 +746,15 @@ footer .sns-list a > img {
 .confirm-msg p {
     padding: 13px 0;
     text-align: center;
+}
+
+.share-info-text {
+    padding: 15px;
+    line-height: 2;
+    font-size: 15px;
+    text-align: center;
+    border-top: 1px solid #E0E0E0;
+    border-bottom: 1px solid #E0E0E0;
 }
 
 @media all and (max-width: 480px) {
@@ -708,7 +776,7 @@ footer .sns-list a > img {
     }
 
     .challenge-contents {
-        padding: 65px 0 154px;
+        padding-top: 65px;
     }
 
     .contents-header {
@@ -768,7 +836,7 @@ footer .sns-list a > img {
 
     .select-sticker {
         width: 290px;
-        height: 320px;
+        height: 290px;
     }
 
     .select-sticker h3 {
@@ -777,7 +845,6 @@ footer .sns-list a > img {
 
     #searchSticker {
         margin-bottom: 24px;
-
     }
 
     .search-btn {
@@ -800,6 +867,7 @@ footer .sns-list a > img {
     }
 
     .sticker-list {
+        height: 170px;
         padding: 0 15px;
     }
 
@@ -808,10 +876,6 @@ footer .sns-list a > img {
         height: 42px;
         margin: 0 12px 12px 0;
     }
-
-    /* .select-sticker.add-remove-btn .remove-btn {
-        margin: 0 0 0 12px;
-    }     */
 
     .sticker-item > .sticker{
         width: 42px;
@@ -875,10 +939,9 @@ footer .sns-list a > img {
     }
 
     .confirm-msg {
-        left: -23px;
         top: -39px;
         font-size: 12px;
-        width: 148px;
+        width: 120px;
     }
     
     .confirm-msg p {
@@ -935,5 +998,28 @@ footer .sns-list a > img {
         width: 22px;
         height: 22px;
         margin-left: 22px;
+    }
+}
+
+/* 900px 이하일 경우 github 버튼을 안 보이게 합니다.*/
+@media all and (max-width: 900px) {
+    .main-buttons .github-btn {
+        display: none;
+    }
+
+    .challenge-table.github {
+        width: 446px;
+    }
+
+    .main-buttons.github {
+        width: 446px;
+    }
+
+    .challenge-table.github .table-item:nth-child(10n) {
+        margin: 0 12px 12px 0;
+    }
+    
+    .challenge-table.github .table-item:nth-child(5n) {
+        margin: 0 0 12px 0;
     }
 }

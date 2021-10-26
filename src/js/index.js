@@ -330,6 +330,30 @@ saveBtn.addEventListener('click',screenShot);
 
 Kakao.init('551505ed5b3d098a365d690f62520040');
 
+// github 버튼 이벤트
+const githubBtn = document.querySelector(".github-btn");
+const githubInfoMsg = document.querySelector(".github-info-msg");
+const mainbuttons = document.querySelector(".main-buttons");
+
+githubBtn.addEventListener("click", function(){
+    if(githubBtn.classList.contains("capture")){
+        githubBtn.classList.remove("capture");
+        githubInfoMsg.innerHTML = "<p>Increase the page horizontally for <span>Github upload</span></p>";
+        challengeTable.classList.remove("github");
+        mainbuttons.classList.remove("github");
+    } else {
+        githubBtn.classList.add("capture");
+        githubInfoMsg.innerHTML = "<p>Go back to the original screen.</p>";
+        challengeTable.classList.add("github");
+        mainbuttons.classList.add("github");
+    }
+});
+
+// const captureBtn = document.querySelector(".capture");
+
+// if(captureBtn) {
+//     captureBtn.addEventListener("click")
+// }
 
 // 모달창 닫기
 window.onclick = function(e) {
@@ -350,12 +374,4 @@ window.onclick = function(e) {
         resetBtn.innerText = "Reset";
         resetBtn.classList.remove("check");
     }
-
-    
-    // if(e.target != selectSticker) {
-    //     // item.classList.remove("selected");
-    //     if(selectSticker.classList.contains("active")){
-    //         selectSticker.classList.remove("active");
-    //     }
-    // }
 };

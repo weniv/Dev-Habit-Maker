@@ -4,38 +4,65 @@ const settingModal = document.querySelector(".setting");
 const shareModal = document.querySelector(".share");
 
 const cancelBtns = document.querySelectorAll(".cancel-btn");
-const stickers = document.querySelectorAll(".sticker");
 const setBtn = document.querySelector(".set-btn");
 const progressBar = document.querySelector(".progress-bar");
 const app = document.getElementsByClassName("table-item-wrap")[0];
 const challengeTable = document.querySelector(".challenge-table");
 const selectSticker = document.querySelector(".select-sticker");
+const searchInput = document.querySelector(".search-input")
 
+
+let stickers
 let selectedItem;
 let appData = {};
+let stickerData = {}
 
-function getData() {
-    fetch("src/js/data.json")
-      .then((response) => response.json())
-      .then(data => {
-          setStickerElement(data);
-      });
+async function getData() {
+    const data = await fetch("src/js/data.json");
+    stickerData = await data.json()
 }
-  
-getData();
-
+ 
 function setStickerElement(data) {
     const stickerList = document.querySelector(".sticker-list");
-
-    for(let i of data){
-        stickerList.innerHTML += `
-        <li class="sticker-item" id='${i.name}'>
-            <img src="${i.img}" alt="sticker" class="sticker">
-        </li>
-        `;
+    const items = data.map((i)=>`
+    <li class="sticker-item" id='${i.name}'>
+        <img src="${i.img}" alt="sticker" class="sticker">
+    </li>
+    `)
+    stickerList.innerHTML=''
+    for(let item of items){
+        stickerList.innerHTML += item;
     }
 }
 
+async function initStickerList() {
+    await getData();
+    setStickerElement(stickerData)
+    stickers = document.querySelectorAll(".sticker");
+    stickers.forEach((item,idx)=>{
+        const idx1 = idx;
+        item.addEventListener("click", ()=>{
+            setSticker(idx1);
+        });
+    })
+    init();
+
+}
+async function searchSticker(e) {
+    const keyword = e.target.value
+    if (stickerData){
+        stickerData.forEach(item => {
+            if(!item.name.includes(keyword)){
+                console.log(item.name.includes(keyword));
+                document.getElementById(item.name).style.display = "none"
+            }else if(item.name.includes(keyword)){
+
+                document.getElementById(item.name).style.display = "flex"
+            }
+        });
+    }
+}
+searchInput.addEventListener("keyup",searchSticker)
 const saveBtn = document.querySelector('#img-capture-btn');
 
 window.addEventListener("keydown",function(e) {
@@ -75,7 +102,7 @@ function progressCheck() {
     const items = document.getElementsByClassName("table-item");
     let count = 0;
     [...items].forEach(item => {
-        count += item.dataset.value < 4 ? 1 : 0;
+        count += item.dataset.value > -1 ? 1 : 0;
     });
     progressBar.style.width = `${count/items.length*100}%`;
 }
@@ -151,7 +178,7 @@ function setTable() {
     for (const key in appData.data) {
         if (Object.hasOwnProperty.call(appData.data, key)) {
             const stamp = appData.data[key];
-            const el = createDom(dom="div", id=`item${key}`,className="table-item", child= stamp==4 ? key : stickers[stamp].cloneNode());
+            const el = createDom(dom="div", id=`item${key}`,className="table-item", child= stamp==-1 ? key : stickers[stamp].cloneNode());
             el.setAttribute('data-value', stamp);
             app.append(el);
         }
@@ -174,7 +201,7 @@ function init() {
     if (!localStorage.getItem("habitChallengeData")){
         const defaultData = {};
         [...Array(60)].forEach((k, i) => {
-            defaultData[i + 1] = 4;
+            defaultData[i + 1] = -1;
         });
 
         const date = new Date;
@@ -198,7 +225,6 @@ function init() {
     progressCheck();
 }
 
-init();
 
 // 초기화 버튼
 const resetBtn = document.querySelector(".reset-btn");
@@ -211,7 +237,7 @@ resetBtn.addEventListener("click", function(){
     if (resetBtn.classList.contains("check")){
         const defaultData = {};
         [...Array(60)].forEach((k, i) => {
-            defaultData[i+1] = 4;
+            defaultData[i+1] = -1;
         });
 
         const date = new Date;
@@ -246,12 +272,6 @@ resetBtn.addEventListener("click", function(){
 // 스티커 추가 이벤트
 const tableItem = document.querySelectorAll(".table-item");
 
-stickers.forEach((item,idx)=>{
-    const idx1 = idx;
-    item.addEventListener("click", ()=>{
-        setSticker(idx1);
-    });
-})
 
 // 스티커 선택창 스타일 변경
 // tableItem를 클릭할 때마다 스티커 선택창 위치가 변경됨.
@@ -371,3 +391,6 @@ window.onclick = function(e) {
         resetBtn.classList.remove("check");
     }
 };
+
+
+initStickerList()

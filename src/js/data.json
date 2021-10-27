@@ -46,7 +46,7 @@
     },
     {
         "pk":9,
-        "nameeng":"android",
+        "name":"android",
         "img": "/src/img/icon/android.svg"
     },
     {
@@ -121,7 +121,7 @@
     },
     {
         "pk":24,
-        "name-":"chai",
+        "name":"chai",
         "img": "/src/img/icon/chai.png"
     },
     {
@@ -288,11 +288,6 @@
         "pk":57,
         "name":"jquery",
         "img": "/src/img/icon/jquery.png"
-    },
-    {
-        "pk":58,
-        "name":"jenkins",
-        "img": "/src/img/icon/jenkins.svg"
     },
     {
         "pk":59,

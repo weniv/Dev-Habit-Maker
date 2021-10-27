@@ -320,7 +320,7 @@ button.fill {
     height: 195px;
     box-sizing: border-box;
     overflow-y: scroll;
-    padding: 0 29px 0 19px;
+    padding: 0 13px 0 19px;
 }
 
 /* 스티커 아이템 */
@@ -334,17 +334,30 @@ button.fill {
     height: 58px;
 }
 
+.sticker-item.display-none {
+    display: none;
+}
+
 .select-sticker.github .sticker-item {
-    margin: 0 19.7px 16px 0;
+    margin: 0 19px 16px 0;
 }
 
-.sticker-item:nth-child(5n) {
+.select-sticker.github .sticker-list {
+    padding: 0 7px 0 25px;
+}
+
+/* .sticker-item:nth-child(5n) {
     margin: 0;
 }
 
-.select-sticker.github .sticker-item:nth-child(10n) {
+.sticker-item.search-result:nth-child(5n) {
     margin: 0;
-}
+} */
+
+
+/* .select-sticker.github .sticker-item.search-result:nth-child(10n) {
+    margin: 0;
+} */
 
 /* 스티커 이미지 */
 .sticker-item > .sticker {
@@ -1043,11 +1056,11 @@ footer .sns-list a > img {
         margin: 0 16px 16px 0;
     }
 
-    .select-sticker.github .sticker-item:nth-child(10n) {
+    /* .select-sticker.github .sticker-item:nth-child(10n) {
         margin: 0 16px 16px 0;
     }
 
     .select-sticker.github .sticker-item:nth-child(5n) {
         margin: 0;
-    }
+    } */
 }

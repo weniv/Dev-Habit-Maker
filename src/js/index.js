@@ -54,10 +54,14 @@ async function searchSticker(e) {
         stickerData.forEach(item => {
             if(!item.name.includes(keyword)){
                 console.log(item.name.includes(keyword));
-                document.getElementById(item.name).style.display = "none"
+                document.getElementById(item.name).classList.add("display-none");
+                // document.getElementById(item.name).classList.remove("display-none");
+
+
             }else if(item.name.includes(keyword)){
 
-                document.getElementById(item.name).style.display = "flex"
+                document.getElementById(item.name).classList.remove("display-none");
+
             }
         });
     }
@@ -164,12 +168,15 @@ function addModalEvt(item, idx) {
             stickerStyle(idx, item);
         }
 
-        // window.onclick = function(e) {
-        //     if(e.target != item) {
-        //         item.classList.remove("selected");
-        //         selectSticker.classList.remove("active");
-        //     }
-        // };
+        window.onclick = function(e) {
+            console.log(e.target)
+            if((e.target != item) && e.target.className != "search-input") {
+                if(e.target.className != "sticker"){
+                    item.classList.remove("selected");
+                    selectSticker.classList.remove("active");
+                }
+            }
+        };
     }, {capture: true});
 }
 

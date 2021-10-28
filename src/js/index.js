@@ -12,14 +12,14 @@ const selectSticker = document.querySelector(".select-sticker");
 const searchInput = document.querySelector(".search-input")
 
 
-let stickers
+let stickers;
 let selectedItem;
 let appData = {};
 let stickerData = {}
 
 async function getData() {
     const data = await fetch("src/js/data.json");
-    stickerData = await data.json()
+    stickerData = await data.json();
 }
  
 function setStickerElement(data) {
@@ -27,9 +27,10 @@ function setStickerElement(data) {
     const items = data.map((i)=>`
     <li class="sticker-item" id='${i.name}'>
         <img src="${i.img}" alt="sticker" class="sticker">
-    </li>
-    `)
-    stickerList.innerHTML=''
+    </li>`);
+
+    stickerList.innerHTML = "";
+
     for(let item of items){
         stickerList.innerHTML += item;
     }
@@ -37,43 +38,38 @@ function setStickerElement(data) {
 
 async function initStickerList() {
     await getData();
-    setStickerElement(stickerData)
+    setStickerElement(stickerData);
     stickers = document.querySelectorAll(".sticker");
     stickers.forEach((item,idx)=>{
         const idx1 = idx;
         item.addEventListener("click", ()=>{
             setSticker(idx1);
         });
-    })
+    });
     init();
-
 }
+
 async function searchSticker(e) {
-    const keyword = e.target.value
+    const keyword = e.target.value;
     if (stickerData){
         stickerData.forEach(item => {
             if(!item.name.includes(keyword)){
-                console.log(item.name.includes(keyword));
-                document.getElementById(item.name).classList.add("display-none");
-                // document.getElementById(item.name).classList.remove("display-none");
-
-
-            }else if(item.name.includes(keyword)){
-
-                document.getElementById(item.name).classList.remove("display-none");
-
+                document.getElementById(item.name).style.display = "none"; 
+            } else if(item.name.includes(keyword)){
+                document.getElementById(item.name).style.display = "flex"; 
             }
         });
     }
 }
-searchInput.addEventListener("keyup",searchSticker)
+
+searchInput.addEventListener("keyup",searchSticker);
 const saveBtn = document.querySelector('#img-capture-btn');
 
 window.addEventListener("keydown",function(e) {
     if(e.keyCode===13){
         e.preventDefault();
     }
-})
+});
 
 setBtn.addEventListener("click", setChallenge);
 
@@ -125,11 +121,22 @@ function setSticker(idx) {
         <div class="img-wrapper">
             <img src="${stickers[idx].src}" alt="sticker" class="sticker">
         </div>`;
-    
+
+    const selected = document.querySelector(".selected");
+    if(selected) {
+        selected.classList.remove("selected");
+    }
+    if(selectSticker.classList.contains("active")){
+        selectSticker.classList.remove("active");
+    }
+
+        
     const sticker = selectedDom.querySelector(".sticker");
     sticker.addEventListener('click', addModalEvt);
+
     appData['data'][selectedItem+1] = idx;
     saveAppData();
+    setTimeout(setTable, 1300);
 }
 
 //챌린지 설정
@@ -169,7 +176,6 @@ function addModalEvt(item, idx) {
         }
 
         window.onclick = function(e) {
-            console.log(e.target)
             if((e.target != item) && e.target.className != "search-input") {
                 if(e.target.className != "sticker"){
                     item.classList.remove("selected");
@@ -200,8 +206,8 @@ function setTable() {
     tableItem.forEach((item, idx) => {
         addModalEvt(item,idx);
     });
+    
 }
-
 
 function init() {
     // 최초 데이터 없을때 초기화
@@ -300,26 +306,35 @@ function stickerStyle(idx, item){
 //스크린샷 기능
 async function screenShot() {
     shareModal.classList.remove("active");
+    // const imgWrapper = document.querySelector(".img-wrapper");
+    // imgWrapper.remove();
+
     const padding = 5;
     const cv = await html2canvas(document.body);
-    const ratio =  cv.width/ document.body.getBoundingClientRect().width
-    const left = document.querySelector(".challenge-table").offsetLeft * ratio
-    const top = document.querySelector(".contents-header").offsetTop * ratio
+    const ratio =  cv.width/ document.body.getBoundingClientRect().width;
+    const left = document.querySelector(".challenge-table").offsetLeft * ratio;
+    const top = document.querySelector(".contents-header").offsetTop * ratio;
     const height = document.querySelector(".challenge-table").offsetHeight*ratio + document.querySelector(".contents-header").offsetHeight * ratio + top;
-    const width = document.querySelector(".challenge-table").offsetWidth*ratio
+    const width = document.querySelector(".challenge-table").offsetWidth*ratio;
     const canvas = document.createElement("canvas");
-    const imgData = cv.getContext("2d").getImageData(left-left/padding,top-top/padding,width+left*2/padding,height+top*2/padding);
+    const imgData = cv.getContext("2d").getImageData(left-left/padding, top-top/padding, width+((left*2)/padding), height+((top*2)/padding));
     canvas.width = imgData.width;
     canvas.height = imgData.height;
     canvas.getContext("2d").putImageData(imgData, 0, 0);
 
-    const img = canvas.toDataURL("image/jpeg").replace("image/jpeg", "image/octet-stream");
-    const vDom = document.createElement('a');
-    vDom.href = img;
-    vDom.download = "myChallenge.jpg";
-    vDom.click();
+    if (navigator.msSaveBlob) {
+        var blob = canvas.msToBlob();
+        return navigator.msSaveBlob(blob, 'myChallenge.jpg');
+    } else {
+        const img = canvas.toDataURL("image/jpeg").replace("image/jpeg", "image/octet-stream");
+        const vDom = document.createElement('a');
+        vDom.href = img;
+        vDom.download = "myChallenge.jpg";
+        vDom.click();
+    }
 }
 
+// sns 공유
 function shareFacebook() {
     let url = window.location.href;
     let facebook = 'http://www.facebook.com/sharer/sharer.php?u=';
@@ -330,7 +345,7 @@ function shareFacebook() {
 
 function shareTwitter() {
     let url = window.location.href;
-    let sendText = "하루한번 챌린지!"; // 전달할 텍스트
+    let sendText = "하루 한 번 챌린지!"; // 전달할 텍스트
     let twitter = "https://twitter.com/intent/tweet?text="
     window.open(twitter + sendText + "&url=" + url);
     shareModal.classList.remove("active");
@@ -341,7 +356,7 @@ function shareKakao() {
         objectType: 'feed',
         content: {
             title: "Day Habit Challenge",
-            description: "하루하루 천천히 습관만들기 도전!", 
+            description: "하루하루 천천히 습관 만들기 도전!", 
             imageUrl: "https://weniv.github.io/30daysChallengeHabit/src/img/thumbnail.png",
             link: {
                     mobileWebUrl: "http://habitmaker.co.kr",

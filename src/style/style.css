@@ -156,8 +156,7 @@ button.fill {
     background-color: #FFF;
     border-radius: 20px;
     box-sizing: border-box;
-    padding: 24px 24px 12px;
-    /* box-shadow: 0px 0px 8px rgba(149, 107, 217, 0.38); */
+    padding: 24px 12px 12px 24px;
     margin-right: 0;
     margin-bottom: 40px;
 }
@@ -195,7 +194,7 @@ button.fill {
 }
 
 /* table-item 중 5의 배수 자식들은 margin-right=0 */
-.challenge-table .table-item:nth-child(5n) {
+/* .challenge-table .table-item:nth-child(5n) {
     margin: 0 0 12px 0;
 }
 
@@ -205,7 +204,7 @@ button.fill {
 
 .challenge-table.github .table-item:nth-child(10n) {
     margin: 0 0 12px 0;
-}
+} */
 
 /* 스티커 애니메이션 */
 @keyframes sticker {
@@ -229,13 +228,17 @@ button.fill {
     }
 }
 
-.table-item > div {
+.table-item .img-wrapper {
     animation-name: sticker; 
-    animation-duration: 1.7s; 
+    animation-duration: 1.5s; 
+    animation-fill-mode: forwards;
+    width: 54px;
+    height: 54px;
     z-index: 1;
 }
 
 .table-item .sticker {
+    position: absolute;
     width: 54px;
     height: 54px;
 }
@@ -334,10 +337,6 @@ button.fill {
     height: 58px;
 }
 
-.sticker-item.display-none {
-    display: none;
-}
-
 .select-sticker.github .sticker-item {
     margin: 0 19px 16px 0;
 }
@@ -345,19 +344,6 @@ button.fill {
 .select-sticker.github .sticker-list {
     padding: 0 7px 0 25px;
 }
-
-/* .sticker-item:nth-child(5n) {
-    margin: 0;
-}
-
-.sticker-item.search-result:nth-child(5n) {
-    margin: 0;
-} */
-
-
-/* .select-sticker.github .sticker-item.search-result:nth-child(10n) {
-    margin: 0;
-} */
 
 /* 스티커 이미지 */
 .sticker-item > .sticker {
@@ -555,7 +541,6 @@ footer .sns-list a > img {
 .icon-wrap{
     display: flex;
     padding: 22px 22px 0;
-    /* border-top: 1px solid #E0E0E0; */
     margin-bottom: 22px;
 }
 
@@ -839,7 +824,7 @@ footer .sns-list a > img {
 
     .challenge-table {
         width: 322px;
-        padding: 16px 16px 6px;
+        padding: 16px 6px 6px 16px;
         margin-bottom: 33px;
     }
 
@@ -850,8 +835,9 @@ footer .sns-list a > img {
         font-size: 14px;
     }
 
-    .challenge-table .table-item:nth-child(5n) {
-        margin: 0 0 10px 0;
+    .table-item .img-wrapper {
+        width: 34px;
+        height: 34px;
     }
 
     .table-item .sticker {
@@ -893,7 +879,7 @@ footer .sns-list a > img {
 
     .sticker-list {
         height: 170px;
-        padding: 0 15px;
+        padding: 0 3px 0 15px;
     }
 
     .sticker-item {
@@ -1040,14 +1026,6 @@ footer .sns-list a > img {
         width: 446px;
     }
 
-    .challenge-table.github .table-item:nth-child(10n) {
-        margin: 0 12px 12px 0;
-    }
-    
-    .challenge-table.github .table-item:nth-child(5n) {
-        margin: 0 0 12px 0;
-    }
-
     .select-sticker.github {
         width: 404px;
     }
@@ -1055,12 +1033,4 @@ footer .sns-list a > img {
     .select-sticker.github .sticker-item {
         margin: 0 16px 16px 0;
     }
-
-    /* .select-sticker.github .sticker-item:nth-child(10n) {
-        margin: 0 16px 16px 0;
-    }
-
-    .select-sticker.github .sticker-item:nth-child(5n) {
-        margin: 0;
-    } */
 }

@@ -9,8 +9,7 @@ const progressBar = document.querySelector(".progress-bar");
 const app = document.getElementsByClassName("table-item-wrap")[0];
 const challengeTable = document.querySelector(".challenge-table");
 const selectSticker = document.querySelector(".select-sticker");
-const searchInput = document.querySelector(".search-input")
-
+const searchInput = document.querySelector(".search-input");
 
 let stickers;
 let selectedItem;
@@ -306,8 +305,6 @@ function stickerStyle(idx, item){
 //스크린샷 기능
 async function screenShot() {
     shareModal.classList.remove("active");
-    // const imgWrapper = document.querySelector(".img-wrapper");
-    // imgWrapper.remove();
 
     const padding = 5;
     const cv = await html2canvas(document.body);
@@ -414,5 +411,4 @@ window.onclick = function(e) {
     }
 };
 
-
-initStickerList()
+initStickerList();
